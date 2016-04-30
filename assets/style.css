@@ -1,0 +1,28 @@
+
+
+h1, h2 {
+	margin: 0;
+	margin-top: 5px;
+
+}
+
+.nav .btn {
+	float: right;
+}
+
+.side h1{
+	font-size: 5em;
+}
+
+.row {
+	margin: 20px 0px;
+}
+
+.list {
+	background-color: lightgray;
+}
+
+.table {
+	background-color: white;
+}
+
