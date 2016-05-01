@@ -49,15 +49,14 @@ if (mysql_num_rows($result) == 0) {
   <head>
     <?php// echo "<meta http-equiv='refresh' content='0; url=http://twins10402.dothome.co.kr'>"; //php 중복 입력 방지 ?>
 
-    <meta charset="EUC-KR">
+    <meta charset="euc-kr">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
-    <title>명승 명욱 가계부 명욱 수정중</title>
+    <title>명승 수정중</title>
 
-    <!-- 부트스트랩 -->
-    <link href="assets/bootstrap.css" rel="stylesheet">
-    <link href="assets/style.css" rel="stylesheet">
+    <!-- Toss CSS Framework CDN -->
+    <link href="https://cdn.rawgit.com/tossapp/tossapp.github.io/master/framework-bt/assets/stylesheets/tossframe-latest.css" rel="stylesheet">    
 
     <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
     <!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
@@ -65,48 +64,43 @@ if (mysql_num_rows($result) == 0) {
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <!-- Toss CSS Framework CDN -->
-    <link href="https://cdn.rawgit.com/kkCheon/tossframe/master/assets/stylesheets/tossframe.css" rel="stylesheet">
-    <style>
-      label { display: inline-block }
-    </style>
+    
+    <link href="assets/style.css" rel="stylesheet">
+  
   </head>
-  <body>
+  <body class="gray-200">
 
 
-      <div class="container">
+      <div class="container blue-500 gray-50-text">
         <div class="row nav">
-          <div class="col-xs-8"><h2>생활비.com</h2></div>
-          <div class="col-xs-4">
-            <button class="btn"><p>정산완료</p></button>
-          </div>
+          <div class="col-xs-12"><h4>명욱이 값아야 할 돈</h4></div>
         </div>
-        <div class="row side">
-          <div class="col-xs-12">
-            <div class="">
-              <button class="btn btn-primary btn-ms">명승</button>
-              <span class="arrow">->>></span>
-              <button class="btn btn-danger btn-mu">명욱</button>
-            </div>
-<?php
-$after_calc = 0;
-while ($row = mysql_fetch_assoc($result)) {
-  if($row['who']=='wook')
-    $after_calc += $row['how_much'];
-  else if($row['who']=='seong')
-    $after_calc -= $row['how_much'];
-  else
-    echo 'wrong name';
-}
 
-$after_calc = intval($after_calc/2);
-            echo '<h1>'.$after_calc.'</h1>';
-?>
+        <div class="row side">
+          <div class="col-xs-7">
+            
+            <?php
+            $after_calc = 0;
+            while ($row = mysql_fetch_assoc($result)) {
+              if($row['who']=='wook')
+                $after_calc += $row['how_much'];
+              else if($row['who']=='seong')
+                $after_calc -= $row['how_much'];
+              else
+                echo 'wrong name';
+            }
+
+            $after_calc = intval($after_calc/2);
+                        echo '<h1 class="number inline-block">'.$after_calc.'</h1><h4 class="inline-block">원</h4>';
+            ?>
+          </div>
+          <div class="col-xs-5">
+            <a class="btn btn-normal">토스로 보내기</a>
           </div>
         </div>
       </div>
 
-      <section class="list">
+      <section class="list gray-200">
         <div class="container">
           <div class="row">
             <div class="col-xs-12">
@@ -147,16 +141,39 @@ while ($row = mysql_fetch_assoc($result)) {
         </div>
         
       </section>
-    <div class="container text-center"><div class="row">
+
+      <div class="form-group">
+          <div class="btn-toggle-2" data-toggle="buttons">
+                   
+            <input type="radio" name="options" id="option1" checked="">
+            <label for="option1">명욱</label>
+
+            <input type="radio" name="options" id="option2">
+            <label for="option2">명승</label>
+
+          </div>
+
+          <label class="gray-600-text">무엇에</label>
+          <input type="이름" class="form-control" id="inputPassword3" placeholder="-없이 입력">
+
+          <label class="gray-600-text">얼마나</label>
+          <input type="이름" class="form-control" id="inputPassword3" placeholder="-없이 입력">
+
+          <button class="btn btn-pay">입력하기</button>
+
+      </div>
+
+
+    <!-- <div class="container text-center"><div class="row">
     <form class="form" method="get" action="index.php">
-       <!-- <label> <span>who</span> <input class="form-control" type="text" name="who" /></label>-->
+        <label> <span>who</span> <input class="form-control" type="text" name="who" /></label>
         <label>wook<input class="form-control" type="radio" name="who" value="wook" /></label>
         <label>seong<input class="form-control" type="radio" name="who" value="seong" /></label>
         <label>what<input class="form-control" type="text" name="what" /></label>
         <label>how_much<input class="form-control" type="number" name="how_much" /></label>
         <input class="btn btn-tint" type="submit" value="입력" />
     </form>
-    </div></div>
+    </div></div> -->
 
     
     <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
