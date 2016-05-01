@@ -36,12 +36,12 @@ if (!$result) {
     echo "Could not successfully run query ($sql) from DB: " . mysql_error();
     exit;
 }
- 
+/* it makes problem because we print data also when have nothing
 if (mysql_num_rows($result) == 0) {
     echo "No rows found, nothing to print so am exiting";
     exit;
 }
-
+*/
 
 ?>
 <!DOCTYPE html>
@@ -53,7 +53,7 @@ if (mysql_num_rows($result) == 0) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
-    <title>명승 명욱 가계부</title>
+    <title>명승 명욱 가계부 명욱 수정중</title>
 
     <!-- 부트스트랩 -->
     <link href="assets/bootstrap.css" rel="stylesheet">
@@ -153,7 +153,7 @@ while ($row = mysql_fetch_assoc($result)) {
         <label>wook<input class="form-control" type="radio" name="who" value="wook" /></label>
         <label>seong<input class="form-control" type="radio" name="who" value="seong" /></label>
         <label>what<input class="form-control" type="text" name="what" /></label>
-        <label>how_much<input class="form-control" type="text" name="how_much" /></label>
+        <label>how_much<input class="form-control" type="number" name="how_much" /></label>
         <input class="btn btn-tint" type="submit" value="입력" />
     </form>
     </div></div>
