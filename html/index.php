@@ -143,47 +143,33 @@ while ($row = mysql_fetch_assoc($result)) {
       </section>
 
       
-      
-      <div class="form-group">
+      <form class="form-group" method="get" action="index.php">
           <div class="toggle text-right">
-            <span class="glyphicon 
-glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
           </div>
 
           <div class="btn-toggle-2" data-toggle="buttons">
                    
-            <input type="radio" name="options" id="option1" checked="">
+            <input type="radio" name="who" value="seong" id="option1" checked="">
             <label for="option1">¸í½Â</label>
 
-            <input type="radio" name="options" id="option2">
+            <input type="radio" name="who" value="wook" id="option2">
             <label for="option2">¸í¿í</label>
 
           </div>
 
           <label class="gray-600-text">±Ý¾×</label>
-          <input type="¤Ô¤¾¤Ê¤¥Â¸Â§" class="form-control" id="inputPassword3" placeholder="¾ó¸¶¸¦ ½è³ª¿ä?">
+          <input type="number" class="form-control" name="how_much" id="inputPassword3" placeholder="¾ó¸¶¸¦ ½è³ª¿ä?">
 
           <label class="gray-600-text">³»¿ª</label>
-          <input type="¤Ô¤¾¤Ê¤¥Â¸Â§" class="form-control" id="inputPassword3" placeholder="¾îµð¿¡ ½è³ª¿ä?">
+          <input type="text" class="form-control" name="what" id="inputPassword3" placeholder="¾îµð¿¡ ½è³ª¿ä?">
 
-          <button class="btn btn-pay">ÀÔ·ÂÇÏ±â</button>
+          <input class="btn btn-pay" type="submit" value="ÀÔ·Â" />
 
-      </div>
-
-
-    <!-- <div class="container text-center"><div class="row">
-    <form class="form" method="get" action="index.php">
-        <label> <span>who</span> <input class="form-control" type="text" name="who" /></label>
-        <label>wook<input class="form-control" type="radio" name="who" value="wook" /></label>
-        <label>seong<input class="form-control" type="radio" name="who" value="seong" /></label>
-        <label>what<input class="form-control" type="text" name="what" /></label>
-        <label>how_much<input class="form-control" type="number" name="how_much" /></label>
-        <input class="btn btn-tint" type="submit" value="¤Ô¤¾¤Ê¤¯Â·¤Ô¤¾¤É¤´" />
-    </form>
-    </div></div> -->
+      </form>
 
     
-    <!-- jQuery (Âº¤Ô¤¾¤Ê¤§¤Ô¤¾¤É¤»Â®Â½Âº¤Ô¤¾¤É¤»Â®Â·Â¦¤Ô¤¾¤É¤¼ ¤Ô¤¾¤Ê¤ºÂ¹¤Ô¤¾¤Ê¤¸Â½Âº¤Ô¤¾¤É¤ºÂ©Â¸Â³¤Ô¤¾¤É¤»Â® ¤Ô¤¾¤É¤¼¤Ô¤¾¤É¤¶Â·Â¯Â±¤Ô¤¾¤Ê¤´¤Ô¤¾¤Ê¤§Â» Â§¤Ô¤¾¤É¤¼¤Ô¤¾¤Ê¤¶ ¤Ô¤¾¤É¤¼¤Ô¤¾¤Ê¤¢Â¿Ã¤¤Ô¤¾¤É¤¼¤Ô¤¾¤Ê¤°Â´¤Ô¤¾¤Ê¤ªÂ´¤Ô¤¾¤Ê¤¸) -->
+    <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function(){
